@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const plm = require("passport-local-mongoose")
-mongoose.connect("mongodb://127.0.0.1:27017/pinterest")
+require('dotenv').config(); 
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/pinterest";
+
+mongoose.connect("mongodb+srv://User:1234@cluster0.vrtp76k.mongodb.net/")
 
 const userSchema = new mongoose.Schema({
   username: {
