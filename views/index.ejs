@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pinfluence</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" type="image/png" href="/images/uploads/pinfluence.png">
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <!--pinterest logo-->
+        <img src="/images/uploads/pinfluence.png" alt="pin logo" class="img1" />
+        <p class="header">Make account to see more</p>
+
+        <% if (error && error.length > 0) { %>
+  <div class="error" role="alert">
+    <strong class="font-bold"></strong> <span class="block sm:inline"><%= error[0] %></span>
+  </div>
+<% } %>
+
+
+        <form action="/register" method="post">
+        <input type="text" name="username" placeholder="Username" class="detail" /><br />
+        <input type="text" name="fullName" placeholder="Name" class="detail" /><br />
+        <input type="email"name="email"  placeholder="Email" class="detail" /><br />
+        <input type="password" name="password" placeholder="Password" class="detail" />
+        <input type="submit" class="btn int" value="Create Account" >
+        </form>
+
+        <a class="pass" href="/forgot">Forgot your password?</a> 
+
+        
+        <p class="or">OR</p>
+        <button class="btn ggl">
+          <i
+            class="fab fa-google"
+            style="color: rgb(11, 241, 22); padding-right: 10px"
+          ></i
+          ><a href="#">Continue with Google</a>
+        </button>
+
+        <footer>
+          <p class="p">
+            By continuing, you agree to Pinfluence's
+            <b>Terms of Service, Privacy policy.</b>
+          </p>
+          <hr />
+          <a class="pass" href="/login">Already on Pinfluence? Log In</a>
+        </footer>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

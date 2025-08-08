@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="icon" type="image/png" href="/images/uploads/pinfluence.png">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <!--pinterest logo-->
+        <img src="/images/uploads/pinfluence.png" alt="pin logo" class="img1"  /> 
+        <p class="header1">Welcome Back to Pinfluence</p>
+
+    <% if (error && error.length > 0) { %>
+  <div class="text-red-500 bg-red-100 p-2 rounded mb-4">
+    <%= error[0] %>
+  </div>
+<% } %>
+
+
+        <form action="/login" method="post">
+        <input type="text" name="username" placeholder="Username" class="detail" /><br />
+        <input type="password" name="password" placeholder="Password" class="detail" />
+        <input type="submit" class="btn int" value="Login My Account" >
+        </form>
+
+        <a class="pass" href="/forgot">Forgot your password?</a> 
+
+        <footer>
+          <p>
+            By continuing, you agree to Pinfluence's
+            <b>Terms of Service, Privacy policy.</b>
+          </p>
+          <hr />
+          <a class="pass" href="/">Not on Pinfluence yet? Sign up</a>
+        </footer>
+      </div>
+    </div>
+
+  
+  </body>
+</html>

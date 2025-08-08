@@ -1,0 +1,98 @@
+<%- include('partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Pinterest</title>
+    <link rel="icon" type="image/png" href="/images/uploads/pinfluence.png">
+    <link href="stylesheets/profile.css" rel="stylesheet" />
+  </head>
+  <body>  
+
+    <!-- Header -->
+    
+
+    <!-- Hero Section -->
+    <section class="w-full h-[100vh] flex items-center justify-center bg-[#252529]">
+      <div class="text-center px-4 text-zinc-200 mt-12">
+        <h1 class="text-5xl font-bold mb-4">About this Project</h1>
+        <p class="text-lg max-w-2xl mx-auto">
+          This is a full-stack web application inspired by the popular visual discovery platform, Pinterest. It enables users to explore, upload, and save visually inspiring images to personalized boards.
+        </p>
+    <p class="text-lg mb-4 leading-relaxed">
+      The application is built using  <span class="font-semibold">Node.js, Express, EJS, and Tailwind CSS</span>, with a clean and responsive user interface. It features user authentication powered by <span class="font-semibold"> Passport.js</span> , image uploads using <span class="font-semibold">Multer</span>, and a dynamic <span class="font-semibold"> Masonry.js</span> layout for displaying posts. All user and image data is stored securely in <span class="font-semibold"> MongoDB</span>, managed with <span class="font-semibold"> Mongoose</span>.
+    </p>
+
+     <div class="mt-10 text-zinc-200">
+      <h2 class="text-2xl font-semibold mb-3">Technologies Used</h2>
+      <ul class="list-disc list-inside text-lg">
+        <li> <span class="font-semibold">Node.js & Express.js </span>– Backend development</li>
+        <li><span class="font-semibold">EJS</span>– Templating engine for dynamic views</li>
+        <li><span class="font-semibold">Multer</span>– Middleware for handling image uploads</li>
+        <li><span class="font-semibold">Passport.js</span>– Authentication middleware for secure login/signup</li>
+        <li><span class="font-semibold">MongoDB and Mongoose</span> – NoSQL database for storing users and posts</li>
+        <li><span class="font-semibold">Masonry.js</span>– For responsive and visually appealing grid layout</li>
+      </ul>
+    </div>
+
+    <div class="mt-10 text-zinc-200">
+      <h2 class="text-2xl font-semibold mb-3">Credits</h2>
+      <p class="text-lg">
+        Created by <span class="font-semibold">Aditya Warkade</span> as a personal initiative to explore and demonstrate full-stack web development skills. It serves as a hands-on learning experience in building scalable and interactive web applications using modern technologies.
+      </p>
+    </div>
+</div>
+
+
+    </section>
+
+    <!-- Grid Section (scrollable part 1) -->
+    <section class="py-16 px-6 bg-zinc-50 text-zinc-700">
+      <h2 class="text-3xl font-semibold text-center mb-10">What We Do</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div class="bg-white p-4 rounded-xl shadow">
+          <img src="https://i.pinimg.com/1200x/01/8a/4f/018a4f1509eeb2689b7d07a9cc7f89ba.jpg" class="rounded-md h-60 w-full object-cover mb-4" />
+          <h3 class="text-xl font-semibold mb-2">Inspire Millions</h3>
+          <p>Pinterest connects users to ideas that fuel creativity and projects.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+          <img src="https://i.pinimg.com/736x/28/48/22/2848225faccfc1566e6598de7c831528.jpg" class="rounded-md h-60 w-full object-cover mb-4" />
+          <h3 class="text-xl font-semibold mb-2">Beautiful Design</h3>
+          <p>We care about clean interfaces, high-quality content, and seamless user experiences.</p>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow">
+          <img src="https://i.pinimg.com/736x/85/db/85/85db85fd012cf3548ec9c9de4f1b1601.jpg" class="rounded-md h-60 w-full object-cover mb-4" />
+          <h3 class="text-xl font-semibold mb-2">Powered by Tech</h3>
+          <p>Advanced algorithms help deliver relevant, meaningful ideas to users worldwide.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section (scrollable part 2) -->
+    <section class="py-16 px-6 bg-white text-zinc-700">
+      <h2 class="text-3xl font-semibold text-center mb-10">Our Vision</h2>
+      <div class="max-w-4xl mx-auto text-center text-lg leading-relaxed">
+        <p class="mb-6">
+          We believe inspiration is for everyone. Whether you're planning a birthday party, remodeling a home, or exploring new hobbies — Pinterest is here to spark creativity.
+        </p>
+        <p>
+          Our vision is to help people around the world create a life they love through visual discovery.
+        </p>
+      </div>
+    </section>
+
+    <!-- Placeholder for more scroll (scrollable part 3) -->
+    <section class="py-20 bg-zinc-100 text-center text-zinc-700">
+      <h2 class="text-3xl font-semibold mb-4">Join Our Journey</h2>
+      <p class="max-w-xl mx-auto text-lg">
+        Ready to explore more? Sign up, create boards, and find your next big idea on Pinterest.
+      </p>
+
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto ml-36">
+        <img src="https://i.pinimg.com/1200x/e0/3f/fb/e03ffbea3f4a1ad00aecfe6a58ca95f8.jpg" alt="" class="h-72 rounded-xl shadow">
+        <img src="https://i.pinimg.com/736x/5b/02/8b/5b028bf206280303c9fe30c56fcc20cf.jpg" alt="" class="h-72 rounded-xl shadow">
+        <img src="https://i.pinimg.com/736x/f3/62/72/f36272fcb330b1783c20fc37f8d84748.jpg" alt="" class="h-72 rounded-xl shadow">
+    </section>
+</body>
+</html>

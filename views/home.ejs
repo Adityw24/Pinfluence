@@ -1,0 +1,82 @@
+<% include ./partials/header.ejs %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pinfluence</title>
+<link rel="icon" type="image/png" href="/images/uploads/pinfluence.png">
+<link rel="stylesheet" href="stylesheets/profile.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Optional: smooth scroll experience */
+    html, body {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <main class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6 gap-4 p-4" id="image-container">
+    <!-- Initial cards will be loaded here by JS -->
+  </main>
+
+  <!-- Loading Spinner -->
+  <div id="loading" class="text-center text-zinc-400 text-sm py-4 hidden">
+    Loading more images...
+  </div>
+
+  <script>
+  const container = document.getElementById('image-container');
+  const loading = document.getElementById('loading');
+
+  const ACCESS_KEY = 'D_VZBtkDKWSMn_t9QEVgIMFvc1InMnxt5i5ulTfWqUE'; // 🔑 Replace with your Unsplash access key
+
+  // Create image card
+  function createCard(image) {
+  const card = document.createElement('div');
+  card.className = "mb-4 break-inside-avoid rounded-lg overflow-hidden shadow transition-transform duration-300 hover:scale-105";
+  card.innerHTML =`
+    <img src="${image.urls.small}" alt="${image.alt_description || 'Unsplash image'}" class="w-full h-full">
+    <h5 class="ml-4 text-sm font-semibold text-zinc-300 bg-[#252529] p-2 border-none">${image.alt_description || 'Untitled'}</h5>`;
+  return card;
+}
+
+  // Load images from Unsplash API
+let isLoading = false;
+
+async function loadImages(count = 10) {
+  if (isLoading) return; // Prevent multiple loads
+  isLoading = true;
+  loading.classList.remove('hidden');
+
+  try {
+    const res = await fetch(`https://api.unsplash.com/photos/random?count=${count}&client_id=${ACCESS_KEY}`);
+    const data = await res.json();
+
+    const images = Array.isArray(data) ? data : [];
+    images.forEach(img => {
+      const card = createCard(img);
+      container.appendChild(card);
+    });
+  } catch (err) {
+    console.error("Error loading images:", err);
+  } finally {
+    loading.classList.add('hidden');
+    isLoading = false;
+  }
+}
+
+// Initial load
+loadImages();
+
+// Infinite scroll with flag check
+window.addEventListener('scroll', () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+    loadImages();
+  }
+});
+
+</script>
+
+</body>
+</html>  

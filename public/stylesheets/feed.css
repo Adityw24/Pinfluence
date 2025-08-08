@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #252529;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.card { 
+  margin-top: 4rem;
+  margin-left: 3rem;
+  gap: 5px;
+  width: 18rem;
+  border-radius: 0.75rem; /* rounded corners */
+  border: none;
+  overflow: hidden;      /* clip overflow if needed */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* optional shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02); 
+}
+
+.card-img-top {         /* shorter image height */
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.card-body {
+  padding: 0.8rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap:wrap ;
+  gap: 20px;
+  align-items: flex-start;
+}

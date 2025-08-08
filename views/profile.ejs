@@ -1,0 +1,94 @@
+<% include ./partials/header.ejs %>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pinterest</title>
+    <link rel="icon" type="image/png" href="/images/uploads/pinfluence.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
+    <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image">
+    </form>
+
+    <!-- Profile & Info -->
+    <section class="profile-section">
+      <div class="profile-image">
+        <img src="/images/uploads/<%= user.dp %>"alt="Avatar">
+      </div>
+      <div class="name">
+      <p class="small-text"></p>
+      <h1 class="fullname text-zinc-200"><%= user.fullName %></h1>
+      <div class="username text-zinc-300/80">@<%= user.username %></div>
+      <span class="relative">
+       <i class="ri-pencil-fill text-zinc-400 mr-1 w-20 h-20"></i>  
+      </span>
+     <button id="uploadicon" class="text-zinc-300 mt-1 mr-8 px-3 bg-zinc-700/80 font-semibold hover:bg-zinc-500/80 rounded-xl transition-all duration-300 ease-in-out">Edit Profile</button> <br>
+      <a href="/create" class="settings-btn">Create new Post</a>
+
+      <div class="w-full h-10 mt-3 flex justify-center items-center gap-2">
+  <a href="/profile" class="text-white text-sm font-semibold hover:bg-zinc-600/70 rounded-xl transition-all duration-300 ease-in-out text-center border-none no-underline px-3 py-1">Created Pins</a>
+  <h3 class="text-white text-lg">|</h3>
+  <a href="/saved" class="text-white text-sm font-semibold hover:bg-zinc-600/70 transition-all duration-300 ease-in-out rounded-xl border-none no-underline px-3 py-1">Saved</a>
+</div>
+
+    </section>
+  </main>
+
+  <% if (success && success.length > 0) { %>
+  <div class="bg-green-100 text-green-800 px-4 py-2 rounded mb-4 shadow-md">
+    <%= success[0] %>
+  </div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <div class="bg-red-100 text-red-800 px-4 py-2 rounded mb-4 shadow-md">
+    <%= error[0] %>
+  </div>
+<% } %>
+
+<script>
+  setTimeout(() => {
+    const flashMessages = document.querySelectorAll('.bg-green-100, .bg-red-100');
+    flashMessages.forEach(msg => {
+      msg.style.display = 'none';
+    });
+  }, 3000); 
+</script>
+
+
+  <h1 class="px-10 text-xl text-zinc-300 font-semibold"> My Pins  <i class="ri-pushpin-fill text-zinc-400"></i></h1> 
+
+  <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 2xl:columns-6 gap-4 p-4 mt-3">
+  <% user.posts.forEach(function(post) { %>
+  <div class="mb-4 break-inside-avoid border-none rounded-lg overflow-hidden shadow transition-transform duration-300 hover:scale-105">
+    <img src="images/uploads/<%= post.image %>" class="card-img-top" alt="profile-image">
+
+    <!-- Text BELOW the card -->
+    <div class="mt-1 ml-4 text-sm text-zinc-300">
+      <h5 class="text-sm"><%= post.imageText %></h5>
+      <h5 class="text-sm"><%= post.description %></h5>
+  </div>
+  </div>
+  
+<% }); %>
+</div>
+
+<script>
+document.querySelector("#uploadicon").addEventListener("click", function(){
+  document.querySelector("#uploadform input").click();
+})
+document.querySelector("#uploadform input").addEventListener("change", function(){
+  document.querySelector("#uploadform").submit();
+})
+</script>
+
+</div>
+</body>
+</html>

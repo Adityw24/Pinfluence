@@ -1,0 +1,151 @@
+@import "tailwindcss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252529;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1rem;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  margin-top: 1rem;
+  width: 14rem;
+  border: none;
+  border-radius: 0.75rem; /* rounded corners */
+  overflow: hidden;       /* clip overflow if needed */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* optional shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02); 
+}
+
+.card-img-top {        
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.card-body {
+  padding: 0.5rem;
+} 
+
+.card-title {
+margin-left: 5px;
+font-size: medium;
+}
+
+.container {
+  width:90%;
+  max-width:1200px;
+  margin: auto;
+  background-color: #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cover-image {
+  height: 9rem;
+  margin-left: auto;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: linear-gradient(to top right, #0f172a, #1e293b, #0f172a);
+}
+
+.cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-section {
+text-align: center;
+position: relative;
+margin-top: 0.5rem;
+}
+
+.profile-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fullname {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
+
+.username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0.3rem 0;
+}
+
+.tagline,
+.description {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+}
+.name {
+    margin-top: -10px;
+}
+
+.settings-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+  padding: 0.4rem 1rem;
+  background-color: #e60023;
+  color: #fff;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.settings-btn:hover{
+    background-color:#cc001f;
+}
+
+.bio-text {
+  margin-top: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  color: #373737;
+  line-height: 1.6;
+}
+
+.flex {
+  display: flex;
+  flex-wrap:wrap ;
+  gap: 20px;
+  justify-content: center; /* optional */
+  align-items: flex-start;
+}
+
+
+
