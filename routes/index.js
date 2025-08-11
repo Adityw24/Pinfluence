@@ -18,7 +18,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) { 
-  console.log(req.flash("error"))
   res.render('login',{error:req.flash('error'), title: 'login'});
   });
 
@@ -92,7 +91,7 @@ router.post("/login", function (req, res, next) {
   passport.authenticate("local", function (err, user, info) {
     if (err) return next(err);
     if (!user) {
-      req.flash("error", info.message || "Invalid username or password");
+      req.flash("error","Invalid username or password");
       return res.redirect("/login");
     }
     req.logIn(user, function (err) {
